@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-accent="glacier">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101720" media="(prefers-color-scheme: dark)" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Or7 Works</title>
+    <script>
+      // Aplica tema, cor de destaque e movimento antes da primeira pintura (evita flash).
+      ;(function () {
+        try {
+          var raw = localStorage.getItem('or7works:preferences')
+          var p = raw ? JSON.parse(raw) : {}
+          var mode = p.theme || 'system'
+          var dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+          var root = document.documentElement
+          root.dataset.theme = dark ? 'dark' : 'light'
+          root.dataset.accent = p.accent || 'glacier'
+          if (p.motion === 'reduce') root.dataset.motion = 'reduce'
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

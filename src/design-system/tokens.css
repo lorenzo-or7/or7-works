@@ -1,0 +1,61 @@
+/*
+ * Or7 Works — Glacier Original
+ * Tokens congelados em or7works_fase01/docs/02_design_system.md.
+ * Valores derivados (sunken, raised, *-soft, faint, border-strong) são misturas
+ * dos tokens aprovados — nenhuma cor nova de marca é introduzida.
+ */
+:root,
+[data-theme='light'] {
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --text: #202c39;
+  --muted: #586878;
+  --border: #dce3e9;
+  --accent: #356a88;
+  --on-accent: #ffffff;
+  --success: #237453;
+  --warning: #946000;
+  --error: #b23c4a;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #101720;
+  --surface: #1b2632;
+  --text: #edf3f7;
+  --muted: #a5b6c5;
+  --border: #344250;
+  --accent: #91c2de;
+  --on-accent: #10212f;
+  --success: #63c99a;
+  --warning: #f2c16a;
+  --error: #f08d99;
+  color-scheme: dark;
+}
+
+/* Cores de destaque configuráveis (contraste AA verificado em docs/etapa-01/design-system.md) */
+[data-accent='fiorde'] { --accent: #2e6b64; }
+[data-accent='ameixa'] { --accent: #6b4e80; }
+[data-accent='terra'] { --accent: #8a5530; }
+[data-accent='grafite'] { --accent: #44505e; }
+[data-theme='dark'][data-accent='fiorde'] { --accent: #8dcbc2; }
+[data-theme='dark'][data-accent='ameixa'] { --accent: #c7b1dc; }
+[data-theme='dark'][data-accent='terra'] { --accent: #e2b48c; }
+[data-theme='dark'][data-accent='grafite'] { --accent: #c2ccd7; }
+
+:root {
+  --sunken: color-mix(in oklab, var(--text) 3.5%, var(--bg));
+  --raised: var(--surface);
+  --faint: color-mix(in oklab, var(--muted) 90%, var(--bg));
+  --border-strong: color-mix(in oklab, var(--text) 22%, var(--border));
+  --accent-soft: color-mix(in oklab, var(--accent) 11%, var(--surface));
+  --success-soft: color-mix(in oklab, var(--success) 11%, var(--surface));
+  --warning-soft: color-mix(in oklab, var(--warning) 12%, var(--surface));
+  --error-soft: color-mix(in oklab, var(--error) 11%, var(--surface));
+}
+
+[data-theme='dark'] {
+  --sunken: color-mix(in oklab, #000 18%, var(--bg));
+  --raised: color-mix(in oklab, var(--text) 4%, var(--surface));
+  --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--surface));
+}
